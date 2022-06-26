@@ -3,19 +3,26 @@
   "sideEffects": false,
   "main": "build/index.js",
   "scripts": {
-    "build": "remix build",
+    "start": "cross-env NODE_ENV=production miniflare ./build/index.js",
+    "build": "run-s build:*",
+    "build:css": "npm run generate:css -- --minify",
+    "build:remix": "remix build",
     "deploy": "npm run build && wrangler publish",
+    "dev": "remix build && run-p dev:*",
+    "dev:css": "npm run generate:css -- --watch",
+    "_dev:remix": "remix dev",
     "dev:remix": "remix watch",
     "dev:miniflare": "cross-env NODE_ENV=development miniflare ./build/index.js --watch",
-    "dev": "remix build && run-p dev:*",
-    "start": "cross-env NODE_ENV=production miniflare ./build/index.js"
+    "generate:css": "npx tailwindcss -i ./app/global.css -o ./app/tailwind.css"
   },
   "dependencies": {
+    "@prisma/client": "^3.15.2",
     "@remix-run/cloudflare": "^1.6.1",
     "@remix-run/cloudflare-workers": "^1.6.1",
     "@remix-run/react": "^1.6.1",
     "@supabase/supabase-js": "^1.35.3",
     "cross-env": "^7.0.3",
+    "daisyui": "^2.17.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -23,14 +30,22 @@
     "@cloudflare/workers-types": "^3.13.0",
     "@remix-run/dev": "^1.6.1",
     "@remix-run/eslint-config": "^1.6.1",
+    "@tailwindcss/typography": "^0.5.2",
+    "@types/node": "^18.0.0",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "eslint": "^8.18.0",
     "miniflare": "^2.5.1",
     "npm-run-all": "^4.1.5",
+    "prisma": "^3.15.2",
+    "tailwindcss": "^3.1.4",
+    "ts-node": "^10.8.1",
     "typescript": "^4.7.4"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   }
 }

@@ -1,0 +1,61 @@
+/* 色コード: https://nipponcolors.com */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-link: #0284c7
+}
+
+.link {
+  --tw-prose-links: var(--color-link);
+  --tw-prose-invert-links: var(--color-link);
+}
+
+/* :root { */
+/*   --font-family-sans: "Noto Sans JP", sans-serif; */
+/*   --font-family-serif: "Noto Serif JP", serif; */
+/*   --font-family-mono: "Fira Code", "Noto Sans JP", monospace; */
+/* } */
+
+/* :root, */
+/* :root[data-theme="light"] { */
+/*   --color-bg: #fcfaf2; /1* 白練 *1/ */
+/*   --color-text: #1c1c1c; /1* 墨 *1/ */
+/*   --primary: #58B2DC; /1* 空 *1/ */
+/*   --secondary: #F75C2F; /1* 紅緋 *1/ */
+/*   --base: #bdc0ba; /1* 白鼠 *1/ */
+/* } */
+
+/* :root[data-theme="dark"] { */
+/*   --color-bg: #1C1C1C; /1* 墨 *1/ */
+/*   --color-text: #FCFAF2; /1* 白練 *1/ */
+/*   --primary: #1E88A8; /1* 空 *1/ */
+/*   --secondary: #C73E3A; /1* 紅緋 *1/ */
+/*   --base: #373c38; /1* 藍墨茶 *1/ */
+/* } */
+
+/* * { */
+/*   font-family: var(--font-family-mono); */
+/*   background-color: var(--color-bg); */
+/*   color: var(--color-text); */
+
+/*   border: 0; */
+/* } */
+
+/* .btn { */
+/*   background-color: var(--base); */
+/*   border-radius: 30% */
+/* } */
+
+/* .btn:hover { */
+/*   cursor: pointer; */
+/* } */
+
+/* .btn-primary { */
+/*   background-color: var(--primary); */
+/* } */
+
+/* .btn-secondary { */
+/*   background-color: var(--secondary); */
+/* } */
